@@ -1,5 +1,5 @@
-section.banner {
-  max-width: 100%;
+.banner {
+  width: 100%;
   padding-block: 2.5rem;
   overflow: hidden;
 
@@ -17,13 +17,15 @@ section.banner {
   }
 
   .bg-gradient-animate {
-    background: linear-gradient(45deg,
-        var(--snitap-sky-light),
-        var(--snitap-joy-light));
+    background: linear-gradient(
+      45deg,
+      var(--snitap-sky-light),
+      var(--snitap-joy-light)
+    );
     background-size: 400%;
     background-position: 0 50%;
 
-    animation: bg-gradient 10s ease infinite;
+    animation: bg-gradient 20s ease infinite;
   }
 }
 
