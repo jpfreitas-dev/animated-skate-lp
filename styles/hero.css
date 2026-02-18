@@ -3,20 +3,24 @@ section.hero {
   width: 100%;
   padding: 2.5rem 2rem;
   margin-inline: auto;
+  padding: 1rem 1.5rem 3rem 1.5rem;
+  overflow: hidden;
+  gap: 2rem;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
-  overflow: hidden;
+  flex-direction: column-reverse;
 
   & h1 {
     max-width: 40rem;
+    text-align: center;
   }
 
   & h1 div {
     display: inline-block;
     overflow: hidden;
-    height: 5rem;
+    height: clamp(2.5rem, 10vw, 5rem);
     width: min-content;
     vertical-align: bottom;
   }
@@ -45,12 +49,13 @@ section.hero {
     display: flex;
     gap: 2rem;
     margin-top: 3rem;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
 
     & .button {
       display: flex;
       align-items: center;
       gap: 0.75rem;
-
       border-radius: 5rem;
 
       transition: scale 350ms;
@@ -79,11 +84,11 @@ section.hero {
   }
 
   /* patins */
-  & > div:nth-child(2) {
+  &>div:nth-child(2) {
     display: block;
     width: 100%;
     max-width: 30.5rem;
-    height: 30.5rem;
+    aspect-ratio: 1;
 
     & .content {
       width: 100%;
@@ -101,15 +106,15 @@ section.hero {
       top: 3%;
       left: 3%;
 
-      transform: translateX(200%);
-      animation: slideIn 3s 200ms ease forwards;
+      transform: translateX(100vh);
+      animation: slideIn 4s 200ms ease forwards;
     }
 
     & img[src*='patins'] {
       z-index: 1;
 
-      transform: translateX(200%);
-      animation: slideIn 3s ease forwards;
+      transform: translateX(100vw);
+      animation: slideIn 4s ease forwards;
     }
 
     & img[src*='stars-1'] {
@@ -118,8 +123,8 @@ section.hero {
       z-index: 0;
 
       opacity: 0;
-      transform: translateX(400%);
-      animation: slideIn 2s 800ms ease forwards, appear 100ms 800ms forwards;
+      transform: translateX(100vw);
+      animation: slideIn 3s 500ms ease forwards, appear 150ms 800ms forwards;
     }
 
     & img[src*='stars-2'] {
@@ -127,8 +132,8 @@ section.hero {
       right: 0;
       bottom: 35%;
 
-      transform: translateX(400%);
-      animation: slideIn 2.2s 800ms ease forwards;
+      transform: translateX(2000%);
+      animation: slideIn 3.2s 650ms ease forwards;
     }
   }
 }
@@ -150,6 +155,7 @@ section.hero {
 }
 
 @keyframes slideUp {
+
   /* radical static */
   0%,
   22% {
@@ -158,68 +164,85 @@ section.hero {
 
   /* divertida in */
   23% {
-    transform: translateY(calc(-5rem - 15px));
+    transform: translateY(calc(-1 * (clamp(2.5rem, 10vw, 5rem)) - 15px));
   }
 
   25% {
-    transform: translateY(calc(-5rem + 10px));
+    transform: translateY(calc(-1 * (clamp(2.5rem, 10vw, 5rem)) + 10px));
   }
 
   27% {
-    transform: translateY(calc(-5rem - 5px));
+    transform: translateY(calc(-1 * (clamp(2.5rem, 10vw, 5rem)) - 5px));
   }
 
   29% {
-    transform: translateY(calc(-5rem + 5px));
+    transform: translateY(calc(-1 * (clamp(2.5rem, 10vw, 5rem)) + 5px));
   }
 
   /* divertida static */
   33%,
   55% {
-    transform: translateY(-5rem);
+    transform: translateY(calc(-1 * clamp(2.5rem, 10vw, 5rem)));
   }
 
   /* saudável in */
   56% {
-    transform: translateY(calc(-10rem - 15px));
+    transform: translateY(calc(-2 * (clamp(2.5rem, 10vw, 5rem)) - 15px));
   }
 
   58% {
-    transform: translateY(calc(-10rem + 10px));
+    transform: translateY(calc(-2 * (clamp(2.5rem, 10vw, 5rem)) + 10px));
   }
 
   60% {
-    transform: translateY(calc(-10rem - 5px));
+    transform: translateY(calc(-2 * (clamp(2.5rem, 10vw, 5rem)) - 5px));
   }
 
   62% {
-    transform: translateY(calc(-10rem + 5px));
+    transform: translateY(calc(-2 * (clamp(2.5rem, 10vw, 5rem)) + 5px));
   }
 
   /* saudável static */
   66%,
   88% {
-    transform: translateY(-10rem);
+    transform: translateY(calc(-2 * clamp(2.5rem, 10vw, 5rem)));
   }
 
   /* radical in */
   89% {
-    transform: translateY(calc(-15rem - 15px));
+    transform: translateY(calc(-3 * (clamp(2.5rem, 10vw, 5rem)) - 15px));
   }
 
   91% {
-    transform: translateY(calc(-15rem + 10px));
+    transform: translateY(calc(-3 * (clamp(2.5rem, 10vw, 5rem)) + 10px));
   }
 
   93% {
-    transform: translateY(calc(-15rem - 5px));
+    transform: translateY(calc(-3 * (clamp(2.5rem, 10vw, 5rem)) - 5px));
   }
 
   95% {
-    transform: translateY(calc(-15rem + 5px));
+    transform: translateY(calc(-3 * (clamp(2.5rem, 10vw, 5rem)) + 5px));
   }
 
   100% {
-    transform: translateY(-15rem);
+    transform: translateY(calc(-3 * clamp(2.5rem, 10vw, 5rem)));
+  }
+}
+
+@media (width >=48rem) {}
+
+@media (width >=64rem) {
+  section.hero {
+    padding: 2.5rem 2rem;
+    flex-direction: row;
+
+    & h1 {
+      text-align: start;
+    }
+
+    & .buttons {
+      justify-content: start;
+    }
   }
 }

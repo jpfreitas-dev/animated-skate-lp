@@ -22,8 +22,8 @@
 
   --text-sm: 0.875rem;
   --text-base: 1rem;
-  --text-lg: 2.5rem;
-  --text-xl: 4rem;
+  --text-lg: clamp(1.5rem, 5vw, 40px);
+  --text-xl: clamp(2rem, 8vw, 4rem);
 }
 
 html,
